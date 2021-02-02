@@ -31,14 +31,15 @@ export const ROUTES: Routes = [
         component: blogContainers.EditPostComponent,
     },
     {
+        path: 'singlepost',
+        component: blogContainers.SinglepostComponent,
+    },
+    {
         path: ':post',
         canActivate: [blogGuards.PostGuard],
         component: blogContainers.PostComponent,
     },
-    {
-        path: 'singlepost',
-        component: blogContainers.SinglepostComponent,
-    },
+
 
 ];
 
