@@ -34,6 +34,7 @@ export const ROUTES: Routes = [
         canActivate: [blogGuards.PostGuard],
         component: blogContainers.PostComponent,
     },
+
 ];
 
 @NgModule({
