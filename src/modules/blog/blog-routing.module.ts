@@ -8,6 +8,7 @@ import { BlogModule } from './blog.module';
 /* Containers */
 import * as blogContainers from './containers';
 
+
 /* Guards */
 import * as blogGuards from './guards';
 
@@ -33,6 +34,10 @@ export const ROUTES: Routes = [
         path: ':post',
         canActivate: [blogGuards.PostGuard],
         component: blogContainers.PostComponent,
+    },
+    {
+        path: 'singlepost',
+        component: blogContainers.SinglepostComponent,
     },
 
 ];
