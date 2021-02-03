@@ -16,27 +16,17 @@ import { Observable, Subscription } from 'rxjs';
     templateUrl: './home.component.html',
     styleUrls: ['home.component.scss'],
 })
-export class HomeComponent implements OnInit, OnDestroy {
-    subscription: Subscription = new Subscription();
-    isLoggedIn = false;
+export class HomeComponent implements OnInit {
 
-    posts$!: Observable<Post[]>;
-    constructor(
-        private blogService: BlogService,
-        private authUtilsService: AuthUtilsService,
-        private changeDetectorRef: ChangeDetectorRef
-    ) {}
     ngOnInit() {
-        this.posts$ = this.blogService.getPosts$();
+        // this.posts$ = this.blogService.getPosts$();
+        //
+        // this.subscription.add(
+        //     this.authUtilsService.isLoggedIn$().subscribe(isLoggedIn => {
+        //         this.isLoggedIn = isLoggedIn;
+        //         this.changeDetectorRef.detectChanges();
+        //     })
+        // );
+    }
 
-        this.subscription.add(
-            this.authUtilsService.isLoggedIn$().subscribe(isLoggedIn => {
-                this.isLoggedIn = isLoggedIn;
-                this.changeDetectorRef.detectChanges();
-            })
-        );
-    }
-    ngOnDestroy() {
-        this.subscription.unsubscribe();
-    }
 }
