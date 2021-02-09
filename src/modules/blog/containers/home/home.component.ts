@@ -42,4 +42,8 @@ export class HomeComponent implements OnInit {
     edit(): void{
 
     }
+
+    viewSinglePost(): void{
+
+    }
 }
