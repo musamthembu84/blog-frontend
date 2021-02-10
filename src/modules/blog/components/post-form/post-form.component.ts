@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Post } from '@modules/blog/models';
 import { BlogService } from '@modules/blog/services';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import {BloggingService} from "@modules/blog/services/blogging.service";
 
 @Component({
     selector: 'sb-post-form',
@@ -29,7 +30,8 @@ export class PostFormComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         private blogService: BlogService,
-        private modalService: NgbModal
+        private modalService: NgbModal,
+        private bloggingService: BloggingService
     ) {}
     ngOnInit() {
 
@@ -41,7 +43,18 @@ export class PostFormComponent implements OnInit {
             sub_content: this.posts.sub_content,
             content: this.posts.sub_content
         }
+
+        this.bloggingService.creatingPosts(data)
+            .subscribe(
+                response =>{
+                    console.log(response);
+                },
+                error => {
+                    console.log(error);
+                }
+            )
     }
+
 
     onSubmit() {
         if (this.newPostForm.status === 'VALID') {

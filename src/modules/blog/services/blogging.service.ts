@@ -15,6 +15,9 @@ export class BloggingService {
       return this.httpClient.get(baseURL+'getPosts?numberOfPosts=5');
   }
 
+  creatingPosts(data: any): Observable<any>{
+      return this.httpClient.post(data,baseURL+"posting")
+  }
 
 
 }
