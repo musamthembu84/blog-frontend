@@ -1,8 +1,8 @@
 sb-layout-blog
-    
+
     sb-clean-blog-header(
         backgroundImage='url("assets/img/home-bg.jpg")',
-        heading='Clean Blog',
+        heading='Hi, I'm Musa Mthembu',
         subHeading='Blog Theme by Start Bootstrap',
         [siteHeading]='true'
     )
@@ -21,5 +21,5 @@ sb-layout-blog
                         a([routerLink]='post.slug')
                             h2.post-title {{post.heading}}
                             h3.post-subtitle {{post.subHeading}}
-                                
+
                         p.post-meta {{post.meta}}
