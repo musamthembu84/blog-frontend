@@ -35,6 +35,14 @@ export class PostFormComponent implements OnInit {
 
     }
 
+    createNewPost(): void {
+        const data = {
+            title: this.posts.title,
+            sub_content: this.posts.sub_content,
+            content: this.posts.sub_content
+        }
+    }
+
     onSubmit() {
         if (this.newPostForm.status === 'VALID') {
             if (!this.post) {
