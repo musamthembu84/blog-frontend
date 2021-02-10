@@ -16,7 +16,7 @@ export class BloggingService {
   }
 
   creatingPosts(data: any): Observable<any>{
-      return this.httpClient.post(data,baseURL+"posting")
+      return this.httpClient.post(baseURL+"posting",data)
   }
 
 

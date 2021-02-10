@@ -55,7 +55,6 @@ export class PostFormComponent implements OnInit {
             )
     }
 
-
     onSubmit() {
         if (this.newPostForm.status === 'VALID') {
             if (!this.post) {
