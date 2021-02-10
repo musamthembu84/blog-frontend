@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BloggingService} from "@modules/blog/services/blogging.service";
 
 @Component({
   selector: 'sb-singlepost',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SinglepostComponent implements OnInit {
 
-  constructor() { }
+    currentPost = null;
+  constructor(private bloggingService:BloggingService) { }
 
   ngOnInit(): void {
   }
+
+  readPost(id : BigInteger): void{
+
+      this.bloggingService.readEachPost(id)
+          .subscribe(
+              post=> {
+                  this.currentPost= post;
+              }
+          )
+
 
 }

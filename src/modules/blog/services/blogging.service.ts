@@ -19,5 +19,7 @@ export class BloggingService {
       return this.httpClient.post(baseURL+"posting",data)
   }
 
-
+  readEachPost(id : BigInteger): Observable<any>{
+      return this.httpClient.get(baseURL+"singlePost?postId="+id);
+  }
 }
