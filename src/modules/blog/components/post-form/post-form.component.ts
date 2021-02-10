@@ -11,6 +11,11 @@ import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
     styleUrls: ['post-form.component.scss'],
 })
 export class PostFormComponent implements OnInit {
+    posts = {
+       title: '',
+       sub_content: '',
+       content: ''
+    };
     @Input() post?: Post;
     newPostForm = this.fb.group({
         heading: ['', [Validators.required]],
@@ -27,14 +32,7 @@ export class PostFormComponent implements OnInit {
         private modalService: NgbModal
     ) {}
     ngOnInit() {
-        if (this.post) {
-            this.newPostForm.setValue({
-                heading: this.post.heading,
-                subHeading: this.post.subHeading,
-                backgroundImage: this.post.backgroundImage.replace(/^url\("(.+)"\)/, '$1'),
-                body: this.post.body,
-            });
-        }
+
     }
 
     onSubmit() {
