@@ -14,14 +14,18 @@ export class SinglepostComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  readPost(id : BigInteger): void{
+  readPost(id : BigInteger): void {
 
       this.bloggingService.readEachPost(id)
           .subscribe(
-              post=> {
-                  this.currentPost= post;
+              post => {
+                  this.currentPost = post;
+                  console.log(post);
+              },
+              error => {
+                  console.log(error);
               }
           )
 
-
+  }
 }
