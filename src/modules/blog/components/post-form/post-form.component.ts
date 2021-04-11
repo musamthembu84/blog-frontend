@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit, TemplateRef } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl,FormGroup, Validators } from '@angular/forms';
 import { Post } from '@modules/blog/models';
 import { BlogService } from '@modules/blog/services';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
@@ -44,7 +44,12 @@ export class PostFormComponent implements OnInit {
             content: this.posts.sub_content
         }
 
-        this.bloggingService.creatingPosts(data)
+        var formData: any = new FormData();
+        formData.append("title", this.form.get('title').value);
+        formData.append("sub_content", this.form.get('sub_content').value);
+        formData.append("content", this.form.get('content').value);
+
+        this.bloggingService.creatingPosts(formData)
             .subscribe(
                 response =>{
                     console.log("Haha" + response);
