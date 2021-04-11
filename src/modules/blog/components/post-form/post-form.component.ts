@@ -13,9 +13,9 @@ import {BloggingService} from "@modules/blog/services/blogging.service";
 })
 export class PostFormComponent implements OnInit {
     posts = {
-       title: '',
-       sub_content: '',
-       content: ''
+       title: 'Musa',
+       sub_content: 'Dash',
+       content: 'yizo'
     };
     @Input() post?: Post;
     newPostForm = this.fb.group({
@@ -47,7 +47,7 @@ export class PostFormComponent implements OnInit {
         this.bloggingService.creatingPosts(data)
             .subscribe(
                 response =>{
-                    console.log(response);
+                    console.log("Haha" + response);
                 },
                 error => {
                     console.log(error);
@@ -56,41 +56,18 @@ export class PostFormComponent implements OnInit {
     }
 
     onSubmit() {
-        if (this.newPostForm.status === 'VALID') {
-            if (!this.post) {
-                this.blogService
-                    .createPost$(this.newPostForm.value)
-                    .subscribe(response => console.log(response));
-            } else {
-                this.blogService
-                    .updatePost$(this.post, this.newPostForm.value)
-                    .subscribe(response => console.log(response));
-            }
-        }
+//           this.blogService
+//               .createPost$(this.newPostForm.value)
+//               .subscribe(response => console.log(response))
 
-        // tslint:disable-next-line: forin
-        for (const key in this.newPostForm.controls) {
-            const control = this.newPostForm.controls[key];
-            control.markAllAsTouched();
-        }
+//       this.bloggingService
+//           .creatingPosts$(this.newPostForm.value)
+//           .subscribe(response => console.log(response)
+        this.createNewPost();
     }
 
-    deletePost() {
-        this.blogService
-            .deletePost$((this.post as Post).id)
-            .subscribe(response => console.log(response));
-    }
 
-    open(content: TemplateRef<unknown>, modalOptions: NgbModalOptions = {}) {
-        this.modalService.open(content, modalOptions).result.then(
-            result => {
-                if (result === 'CONFIRM') {
-                    this.deletePost();
-                }
-            },
-            reason => {}
-        );
-    }
+
 
     /* Accessor Methods */
 

@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
         this.readAll();
     }
 
+
     readAll(): void {
         this.blogService.readAll()
             .subscribe(
