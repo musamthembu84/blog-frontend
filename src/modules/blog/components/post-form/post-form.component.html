@@ -17,15 +17,6 @@
         <div class="invalid-feedback" *ngIf='subHeadingControl.hasError("subHeading")'>Subheading is not valid</div>
     </div>
 
-
-    <div class="form-group">
-        <input class="form-control py-4" id="backgroundImageInput" data-cy="backgroundImageInput" type="text"
-               placeholder="Post background image (enter a URL)" formControlName="backgroundImage" [class.is-valid]="backgroundImageControlValid"
-               [class.is-invalid]="backgroundImageControlInvalid" />
-        <div class="form-text text-white-50">Use an image URL (ex. https://source.unsplash.com/WLUHO9A_xik/1600x900)</div>
-        <div class="invalid-feedback" *ngIf='backgroundImageControl.hasError("required")'>Background image required</div>
-        <div class="invalid-feedback" *ngIf='backgroundImageControl.hasError("backgroundImage")'>Background image is not valid</div>
-    </div>
     <div class="form-group">
         <textarea class="form-control py-3" id="bodyInput" autosize data-cy="bodyInput"
                   placeholder="Post body text (markdown supported)" formControlName="body" [class.is-valid]="bodyControlValid"
