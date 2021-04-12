@@ -25,7 +25,7 @@
                 <div *ngFor="let item of posts; let i = index">
 
                     <div class="post-preview">
-                        <a href="post.html">
+                        <a routerLink="/singlepost">
                             <h2 class="post-title">
                                 {{item.title}}
                             </h2>
@@ -34,7 +34,7 @@
                             </h3>
                         </a>
                         <p class="post-meta">Posted by
-                            <a href="#">Musa</a>
+                            <a href="#" >Musa</a>
                             {{item.post_creation_date}}</p>
                     </div>
                     <hr>
