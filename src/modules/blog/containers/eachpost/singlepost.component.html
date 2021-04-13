@@ -1,7 +1,8 @@
 <sb-layout-blog
 ><sb-clean-blog-header backgroundImage='url("assets/img/home-bg.jpg")' heading="Clean Blog" subHeading="My Content" [siteHeading]="true"></sb-clean-blog-header><sb-demo-info *ngIf="!isLoggedIn"></sb-demo-info
 ><ng-container *ngIf="posts$ | async as posts"
-><div class="container">
+>
+    <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-preview" *ngFor="let post of posts">
