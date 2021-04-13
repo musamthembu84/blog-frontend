@@ -31,7 +31,7 @@ export const ROUTES: Routes = [
         component: blogContainers.EditPostComponent,
     },
     {
-        path: 'singlepost',
+        path: 'singlepost/:post_id',
         component: blogContainers.SinglepostComponent,
     },
     {

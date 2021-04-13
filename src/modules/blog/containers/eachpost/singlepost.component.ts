@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BloggingService} from "@modules/blog/services/blogging.service";
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'sb-singlepost',
@@ -8,26 +10,22 @@ import {BloggingService} from "@modules/blog/services/blogging.service";
 })
 export class SinglepostComponent implements OnInit {
 
+  id: number;
   data = ''
-  constructor(private bloggingService:BloggingService) { }
+  constructor(
+  private bloggingService:BloggingService,
+  private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-   this.readPost();
+       this.bloggingService.readEachPost(this.route.snapshot.paramMap.get('post_id'))
+                    .subscribe(
+                        post => {
+                            this.data = post;
+                        },
+                        error => {
+                            console.log(error);
+                        }
+       )
   }
-
-  readPost(){
-  this.bloggingService.readEachPost(9)
-             .subscribe(
-                 post => {
-                     this.data = post;
-
-                     console.log(JSON.stringify(this.data.title));
-                 },
-                 error => {
-                     console.log(error);
-                 }
-             )
-  }
-
-
 }

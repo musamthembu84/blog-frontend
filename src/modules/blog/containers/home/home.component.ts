@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
             .subscribe(
                 posts => {
                     this.posts = posts;
-                    console.log(posts[0].post_id);
                 },
                 myerrors => {
                     console.log(myerrors);
