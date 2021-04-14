@@ -12,6 +12,10 @@ import * as authContainers from './containers';
 /* Guards */
 import * as authGuards from './guards';
 
+import * as blogContainers from '../blog/containers';
+
+
+
 /* Routes */
 export const ROUTES: Routes = [
     {
@@ -22,6 +26,10 @@ export const ROUTES: Routes = [
             title: 'Pages Login - SB Clean Blog Angular',
         } as SBRouteData,
     },
+    {
+            path: 'new',
+            component: blogContainers.NewPostComponent,
+     },
 ];
 
 @NgModule({
