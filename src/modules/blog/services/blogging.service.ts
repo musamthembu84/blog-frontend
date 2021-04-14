@@ -12,7 +12,7 @@ export class BloggingService {
   constructor(private httpClient: HttpClient) { }
 
   readAll(): Observable<any>{
-      return this.httpClient.get(baseURL+'getPosts?numberOfPosts=1');
+      return this.httpClient.get(baseURL+'getPosts?numberOfPosts=3');
   }
 
   creatingPosts(data: any): Observable<any>{

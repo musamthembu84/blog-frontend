@@ -14,7 +14,7 @@ import {BloggingService} from "@modules/blog/services/blogging.service";
 })
 export class PostFormComponent implements OnInit {
 
-    newPostForm: FormGroup;
+    newPostForm!: FormGroup;
     @Input() post?: Post;
 
     constructor(
