@@ -12,14 +12,14 @@ export class BloggingService {
   constructor(private httpClient: HttpClient) { }
 
   readAll(): Observable<any>{
-      return this.httpClient.get(baseURL+'getPosts?numberOfPosts=3');
+      return this.httpClient.get(baseURL+'getPosts?numberOfPosts=1');
   }
 
   creatingPosts(data: any): Observable<any>{
       return this.httpClient.post(baseURL+"posting",data)
   }
 
-  readEachPost(id : BigInteger): Observable<any>{
+  readEachPost(id : BigInteger): any[]{
       return this.httpClient.get(baseURL+"singlePost?postId="+id);
   }
 }
